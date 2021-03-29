@@ -11,17 +11,16 @@
 	> sudo apt-get update
 	> sudo apt-get install python3-pip apache2 libapache2-mod-wsgi-py3
 	> sudo pip3 install virtualenv
->
-	# copy django code in /var/www/workspace
-	# create virtualenv
-
+	
 
 # Copy Code location
     > mkdir /var/www/workspace
-    > /var/www/workspace
-
+    > copy django code in location `/var/www/workspace` 
+    > create virtual environment
+    
 
 # Collect static
+    > pip install -r vps/sample/req.txt
     > python manage.py collectstatic
 
 
@@ -98,7 +97,6 @@ wsgi file location.
     
     
 ##### Sample config for port 9000
-
     
     server {
             listen 9000;
@@ -121,3 +119,7 @@ wsgi file location.
     > sudo ln -s /etc/nginx/sites-available/sample /etc/nginx/sites-enabled
     > sudo systemctl restart nginx
     > sudo systemctl reload nginx
+
+##### Check errors
+
+    >  sudo tail -f 15 /var/log/nginx/error.log
